@@ -8,4 +8,4 @@ print("Welcome to the band name generator!")
 cityName = input("Which city did you grow up in?\n")
 petName = input("What is the name of a pet?\n")
 
-print("Your band name could be the \"%s %s\"" % (cityName, petName))
+print(f"Your band name could be the \"{cityName} {petName}\"")

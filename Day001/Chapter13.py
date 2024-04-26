@@ -1,6 +1,6 @@
 name = input("What is your name?")
 
-print("Ho Ho " + name)
+print(f"Ho Ho {name}")
 
 length = len(name)
 
