@@ -36,7 +36,7 @@ class Maze:
     width = len(map[0])
     dept = len(map)
 
-    def getAt(self, x: int, y: int) -> str:
+    def get_at(self, x: int, y: int) -> str:
         return self.map[y][x]
 
 
@@ -84,7 +84,7 @@ class Game:
         if self.player.previous_position.y == self.player.position.y - 1:
             return False
 
-        future_map_item = self.maze.getAt(self.player.position.x, self.player.position.y - 1)
+        future_map_item = self.maze.get_at(self.player.position.x, self.player.position.y - 1)
         if future_map_item == " ":
             self.player.previous_position = Position.create_position(self.player.position)
             self.player.position.y -= 1
@@ -99,7 +99,7 @@ class Game:
         if self.player.previous_position.x == self.player.position.x + 1:
             return False
 
-        future_map_item = self.maze.getAt(self.player.position.x + 1, self.player.position.y)
+        future_map_item = self.maze.get_at(self.player.position.x + 1, self.player.position.y)
         if future_map_item == " ":
             self.player.previous_position = Position.create_position(self.player.position)
             self.player.position.x += 1
@@ -114,7 +114,7 @@ class Game:
         if self.player.previous_position.y == self.player.position.y + 1:
             return False
 
-        future_map_item = self.maze.getAt(self.player.position.x, self.player.position.y + 1)
+        future_map_item = self.maze.get_at(self.player.position.x, self.player.position.y + 1)
         if future_map_item == " ":
             self.player.previous_position = Position.create_position(self.player.position)
             self.player.position.y += 1
@@ -129,7 +129,7 @@ class Game:
         if self.player.previous_position.x == self.player.position.x - 1:
             return False
 
-        future_map_item = self.maze.getAt(self.player.position.x - 1, self.player.position.y)
+        future_map_item = self.maze.get_at(self.player.position.x - 1, self.player.position.y)
         if future_map_item == " ":
             self.player.previous_position = Position.create_position(self.player.position)
             self.player.position.x -= 1
@@ -150,7 +150,7 @@ def refresh_ui():
     part2 = row[game.player.position.x + 1:]
 
     ui[game.player.position.y] = part1 + "X" + part2
-    os.system('clear')
+    os.system('cls||clear')
     for line in ui:
         print(line)
 
@@ -159,7 +159,7 @@ game = Game()
 
 while game.move():
     refresh_ui()
-    sleep(0.25)
+    sleep(0.1)
     if game.is_game_end():
         break
 
